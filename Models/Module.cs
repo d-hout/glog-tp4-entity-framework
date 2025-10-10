@@ -5,9 +5,10 @@ public class Module
 
     public int Credit { get; set; }
 
-    public override string Tostring()
+    public override string ToString()
     {
         string msg = $"l'id est {Id} , Institule : {Institule}, Credit : {Credit}";
+        return msg;
     }
 
 }

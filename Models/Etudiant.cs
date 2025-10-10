@@ -4,9 +4,9 @@ public class Etudiant
     public string Nom { get; set; } = "";// public required string nom {gte;set;} : pour assurer que les chaines nom et prenom ne seront pas nulles
     public string Prenom { get; set; } = "";
 
-    public override string Tostring()
+    public override string ToString()
     {
-        string message = { $" l'id est {Id} le nom est {Nom} et le prenom est {Prenom}" };
+        string message = $" l'id est {Id} le nom est {Nom} et le prenom est {Prenom}";
         return message;
     }
 }
