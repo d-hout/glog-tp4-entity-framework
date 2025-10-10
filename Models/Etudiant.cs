@@ -1,0 +1,12 @@
+public class Etudiant
+{
+    public int Id { get; set; }
+    public string Nom { get; set; } = "";// public required string nom {gte;set;} : pour assurer que les chaines nom et prenom ne seront pas nulles
+    public string Prenom { get; set; } = "";
+
+    public override string Tostring()
+    {
+        string message = { $" l'id est {Id} le nom est {Nom} et le prenom est {Prenom}" };
+        return message;
+    }
+}
