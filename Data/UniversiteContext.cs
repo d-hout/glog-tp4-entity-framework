@@ -1,17 +1,22 @@
 using Microsoft.EntityFrameworkCore;
 
-public class TodoContext : DbContext
-{
-    private const string DbPath = "data.sqlite";
+using System.IO;
 
-    // Mettre à jour cette section en fonction du projet (Models/)
+public class UniversiteContext : DbContext
+{
     public DbSet<Etudiant> Etudiant { get; set; } = null!;
     public DbSet<Module> Module { get; set; } = null!;
-    public DbSet<Inscritpion> Inscription { get; set; } = null!;
-
+    public DbSet<Inscription> Inscription { get; set; } = null!;
+    public string DbPath { get; private set; }
+    public UniversiteContext()
+    {
+        // Path to SQLite database file
+        DbPath = "EFUniversity.db";
+    }
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-        var dpPath = Path.Combine(Directory.GetCurrentDirectory(), "data.sqlite");
-        options.UseSqlite($"Data Source={DbPath}");
+        // Le fichier SQLite sera créé dans le dossier courant
+        var dbPath = Path.Combine(Directory.GetCurrentDirectory(), "data.sqlite");
+        options.UseSqlite($"Data Source={dbPath}");
     }
 }
